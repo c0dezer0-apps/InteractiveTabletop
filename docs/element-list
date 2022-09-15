@@ -1,0 +1,7 @@
+com.codeinspace.interactivetabletop
+com.codeinspace.interactivetabletop.lib.abstracts
+com.codeinspace.interactivetabletop.lib.constants
+com.codeinspace.interactivetabletop.lib.enums
+com.codeinspace.interactivetabletop.lib.exceptions
+com.codeinspace.interactivetabletop.lib.models
+com.codeinspace.interactivetabletop.utils
