@@ -18,6 +18,11 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>11</version>
+		</dependency>
+		<dependency>
 			<groupId>com.newrelic.agent.java</groupId>
 			<artifactId>newrelic-java</artifactId>
 			<version>7.9.0</version>
@@ -51,6 +56,14 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>0.0.1</version>
+				<configuration>
+					<mainClass>HelloFX</mainClass>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
