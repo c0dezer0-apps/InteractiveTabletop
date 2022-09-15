@@ -1,13 +1,14 @@
-package com.codeinspace.tabletopcitizen.lib.models;
+package com.codeinspace.interactivetabletop.lib.models;
 
-import com.codeinspace.tabletopcitizen.lib.abstracts.EntityBase;
+import com.codeinspace.interactivetabletop.lib.abstracts.EntityBase;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.codeinspace.interactivetabletop.lib.enums.Type;
+import com.codeinspace.interactivetabletop.utils.Notify;
 
 /**
  *	Represents an entity. All game objects, such as characters, ships, and
@@ -15,28 +16,38 @@ import org.apache.logging.log4j.Logger;
  *
  * @author Brian Blankenship
  * @since 1.0.0
- * @see com.codeinspace.tabletopcitizen.lib.models.PlayerCharacter
+ * @see PlayerCharacter
  */
-public class Entity extends EntityBase{
-	private String cType;
+public class Entity extends EntityBase {
+	private final UUID cUID;
+	private Type cType;
 	private String cName;
+	private String cDesc;
 	
-	private static final Logger logger = LogManager.getLogger("EntityLogger");
-	
-	public Entity(String name, String type) {
-		super(name, type);
+	public Entity(String name, Type type, String desc) {
+		super(name, type, desc);
 
+		this.cUID = UUID.randomUUID();
 		this.cType = type;
 		this.cName = name;
+		this.cDesc = desc;
+
+		Notify.info("New Entity created:\n");
+		Notify.fine("Entity created.", this);
+	}
+
+	@Override
+	protected String getUID() {
+		return cUID.toString();
 	}
 	
 	@Override
-	protected String getType() {
+	protected Type getType() {
 		return cType;
 	}
 	
 	@Override
-	protected void setType(String type) {
+	protected void setType(Type type) {
 		this.cType = type;
 	}
 	
@@ -49,11 +60,16 @@ public class Entity extends EntityBase{
 	protected void setName(String name) {
 		this.cName = name;
 	}
+
+	@Override
+	protected String getDesc() { return cDesc; }
+
+	@Override
+	protected void setDesc(String desc) { this.cDesc = desc; }
 	
 	/**
 	 * Returns all relevant data to the Entity. In order to get a specific value, Map.get()
 	 * method must be utilized, for ex:
-	 * 
 	 * {@code map.get(value);}
 	 * @author Brian Blankenship
 	 * @since 1.0.0
@@ -68,10 +84,9 @@ public class Entity extends EntityBase{
 				lDetails.put(field.getName(), field.get(this).toString());				
 			}
 			catch (IllegalAccessException err) {
-				logger.error(err);
+				Notify.warn("Encountered an error while fetching Entity details.");
 			}
 		}
-		
 		return lDetails;
 	}
 }

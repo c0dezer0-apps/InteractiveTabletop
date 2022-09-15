@@ -1,14 +1,14 @@
-package com.codeinspace.tabletopcitizen;
+package com.codeinspace.interactivetabletop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TabletopcitizenApplication {
+public class InteractiveTabletopApplication {
 
 	public static void main(String[] args) {
 		
-		SpringApplication.run(TabletopcitizenApplication.class, args);
+		SpringApplication.run(InteractiveTabletopApplication.class, args);
 	}
 
 }

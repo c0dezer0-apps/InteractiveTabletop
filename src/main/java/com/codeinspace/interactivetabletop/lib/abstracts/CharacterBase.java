@@ -1,6 +1,6 @@
-package com.codeinspace.tabletopcitizen.lib.abstracts;
+package com.codeinspace.interactivetabletop.lib.abstracts;
 
-import com.codeinspace.tabletopcitizen.lib.exceptions.SameNameValue;
+import com.codeinspace.interactivetabletop.lib.exceptions.SameNameValue;
 
 public abstract class CharacterBase  {
 	private String pFirstName;
@@ -82,7 +82,7 @@ public abstract class CharacterBase  {
 	/**
 	 * @author Brian Blankenship
 	 * @since 1.0.0
-	 * @param description the description to set
+	 * @param desc the description to set
 	 */
 	public void setDesc(String desc) {
 		this.pDesc = desc;

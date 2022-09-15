@@ -1,14 +1,14 @@
-package com.codeinspace.tabletopcitizen.lib.models;
+package com.codeinspace.interactivetabletop.lib.models;
 
-import com.codeinspace.tabletopcitizen.lib.abstracts.CharacterBase;
-import com.codeinspace.tabletopcitizen.lib.exceptions.SameNameValue;
+import com.codeinspace.interactivetabletop.lib.exceptions.SameNameValue;
+import com.codeinspace.interactivetabletop.lib.abstracts.CharacterBase;
 
 /**
  * Represents a character played by a player.
  * 
  * @author Brian Blankenship
  * @since 1.0.0
- * @see com.codeinspace.tabletopcitizen.lib.models.Entity
+ * @see Entity
  */
 public class PlayerCharacter extends CharacterBase {
     private String pFirstName;
